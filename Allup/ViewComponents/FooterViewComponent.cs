@@ -16,7 +16,13 @@ namespace Allup.ViewComponents
 
        public IViewComponentResult Invoke()
         {
-            var footer = _dbContext.Footer.Include(x => x.AboutUs).Include(x => x.Customers).Include(x => x.Details).Include(x => x.Information).Include(x => x.Message).Include(x => x.MyAccounts).Include(x => x.Payments).FirstOrDefault();
+            var footer = _dbContext.Footer.Include(x => x.Customers)
+            .Include(x => x.AboutUs)
+            .Include(x => x.Details)
+            .Include(x => x.Information)
+            .Include(x => x.Message)
+            .Include(x => x.MyAccounts)
+            .Include(x => x.Payments).FirstOrDefault();
 
             return View(footer);
         }
