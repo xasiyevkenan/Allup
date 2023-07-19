@@ -15,7 +15,9 @@ namespace Allup.Controllers
 
         public IActionResult Index()
         {
-            var featuredCategories = _dbContext.Categories.ToList().Where(x => x.isMain).ToList();
+            var featuredCategories = _dbContext.Categories
+            .Where(x => x.isMain)
+            .ToList();
 
             var products = _dbContext.Products.ToList();
 
